@@ -1,0 +1,32 @@
+div{
+    background: aqua;
+    height: 150px;
+    width: 50%;
+    margin: 20px; /*margin is dist from outisde */
+    box-sizing: border-box;
+    padding-top: 70px; /* padding is dist from inside or borer */
+    padding-left: 25%;
+    border: 3px solid black;
+}
+
+span{
+    background-color: blueviolet;
+}
+
+body{
+    margin: 8px; 
+}
+
+#abc{
+    background-color: chocolate;
+    color: aliceblue;
+    font-size: 30px;
+    padding:25px;
+    font-weight: 900; /* Thickness*/
+}
+
+.a1{
+    background-color: crimson;
+    font-style: italic;
+    
+}
