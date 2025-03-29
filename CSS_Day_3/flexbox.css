@@ -1,0 +1,33 @@
+body{
+    background-color: gray;
+}
+
+.main{
+    border: 2px solid black;
+    display: flex;
+    justify-content: center; /*for horizontal alignment */
+    height: 400px;
+    align-items: center; /* for vertical alignment */
+}
+
+.one{
+    background-color: blueviolet;
+    height: 100px;
+    width: 100px;
+    align-content: center; /* for vertical*/
+    text-align: center; /*for horizontal*/
+    /* flex-grow: 1; */
+}
+
+.two{
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+    flex-shrink: 2;
+}
+
+.three{
+    background-color: green;
+    height: 100px;
+    width: 100px;
+}

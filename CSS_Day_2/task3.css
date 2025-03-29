@@ -1,0 +1,48 @@
+body{
+    background-color: rgb(88, 209, 234);
+}
+
+h2{
+    font-size: 24px;
+}
+
+section{
+    width: 350px;
+    height: 450px;
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 2%;
+    margin: auto;
+    margin-top: 5%;
+    
+}
+
+button{
+    background-color: blue;
+    color: white;
+    width: 80%;
+    margin: 10%;
+    height: 30px;
+    border-radius: 1%;
+}
+
+input{
+    width: 80%;
+    padding: auto;
+    margin-left: 8%;
+    padding: 2%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+b{
+    font-size: 20px;
+    margin-left: 10%;
+    padding-bottom: 10px;
+}
+
+button:hover{
+    background-color: aqua;
+    color: black;
+}
