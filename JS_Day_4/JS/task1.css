@@ -1,0 +1,16 @@
+body{
+    background-color: yellow;
+}
+
+h2{
+    color: blue;
+}
+
+#h3{
+    background-color: black;
+}
+
+p{
+    color:red;
+    font-size: 30px;
+}

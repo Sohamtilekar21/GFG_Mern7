@@ -1,0 +1,63 @@
+.nav{
+    background-color: aquamarine;
+    display: flex;
+    height: 30px;
+    position:relative;
+}
+
+#dropdown{
+    position: absolute;
+    display: none;
+}
+
+#H:hover{
+    background-color: blue;
+}
+#menu:hover{
+    background-color: blue;
+}
+
+#H:hover{
+    background-color: blue;
+}
+
+.ab:hover{
+    background-color: blue;
+}
+
+.c:hover{
+    background-color: blue;
+}
+
+#menu:hover #dropdown{
+    display: block;
+}
+
+ul{
+    list-style: none;
+}
+
+li:hover{
+    background-color: gray;
+    color: black;
+}
+
+#H{
+    margin-left: 50%;
+    margin-right: 10px;
+}
+
+#menu{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.ab{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.c{
+    margin-left: 10px;
+    margin-right: 10px;
+}

@@ -1,0 +1,23 @@
+body{
+    background:lightseagreen;
+}
+
+.main{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:10px
+}
+
+.grid{
+    background: seagreen;
+    padding: 20px;
+    text-align: center;
+    border: 2px solid black;
+    color: white;
+}
+
+#two{
+    grid-row: span 2;
+    height:span 1;
+}
+

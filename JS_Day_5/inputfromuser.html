@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>user input</title>
+</head>
+<body>
+    <h1></h1>
+    <hr>
+    <input placeholder="Enter Heading" type="text">
+
+    <script>
+        let disp=document.querySelector('h1')
+        let data=document.querySelector('input')
+        
+        data.addEventListener('input',()=>{
+            let var1=data.value
+            if(var1.length>0){
+                disp.textContent=`"The data is : ${var1}"`
+            }else{
+                disp.textContent=""
+            }
+            
+        })
+    </script>
+</body>
+</html>

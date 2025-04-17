@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>I am learning events</h1>
+    <button>click me</button>
+
+    <script>
+        let text=document.querySelector('h1')
+        let btn=document.querySelector("button")
+        btn.addEventListener("click",()=>{
+            text.style.background="yellow"
+            text.style.color="red"
+        })
+    </script>
+</body>
+</html>

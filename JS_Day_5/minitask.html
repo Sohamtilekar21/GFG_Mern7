@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IfElse Demo</title>
+    <style>
+        *{
+            background-color: aquamarine;
+            text-align: center;
+        }
+
+        h1{
+            background-color: black;
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>I am learning Javascript</h1>
+    <!-- I am in Gfg -->
+    <button>click me</button>
+
+    <script>
+        let heading=document.querySelector('h1')
+        let vr=heading.textContent
+        let btn=document.querySelector("button")
+        btn.addEventListener("click",()=>{
+            if(heading.textContent===vr){
+                heading.textContent="I am in GFG"
+            }else{
+                heading.textContent=vr
+            }
+        })
+
+        //ternary opertor
+        // ? :
+        // ? is if : is else
+    </script>
+</body>
+</html>

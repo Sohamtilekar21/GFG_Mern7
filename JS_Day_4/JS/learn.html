@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Func</title>
+    <style>
+        h1{
+            background-color: lightcoral;
+            color: crimson;
+        }
+    </style>
+</head>
+<body>
+    <h1>Make me blue on click</h1>
+    <button onclick="on_clicked()">Click Me</button>
+
+    <script>
+        function abc(){
+            console.log("did you click ")
+        }
+
+        function on_clicked(){     
+            document.getElementsByTagName('h1')[0].style.color="Blue"
+            document.getElementsByTagName('h1')[0].style.backgroundColor="lightblue"
+        }
+    </script>
+</body>
+</html>
