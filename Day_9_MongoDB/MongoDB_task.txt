@@ -1,0 +1,335 @@
+dummy_city> use dummy_school
+switched to db dummy_school
+dummy_school> db.students.insertMany([{name:"Aisha",marks:96},{name:"Radha",marks:79},{name:"Mayank",marks:82},{name:"Raju"},{name:"Tony",marks:93}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('680327e5a7385dd7c3b5f89e'),
+    '1': ObjectId('680327e5a7385dd7c3b5f89f'),
+    '2': ObjectId('680327e5a7385dd7c3b5f8a0'),
+    '3': ObjectId('680327e5a7385dd7c3b5f8a1'),
+    '4': ObjectId('680327e5a7385dd7c3b5f8a2')
+  }
+}
+dummy_school> db.students.find()
+[
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f89e'),
+    name: 'Aisha',
+    marks: 96
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f89f'),
+    name: 'Radha',
+    marks: 79
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a0'),
+    name: 'Mayank',
+    marks: 82
+  },
+  { _id: ObjectId('680327e5a7385dd7c3b5f8a1'), name: 'Raju' },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a2'),
+    name: 'Tony',
+    marks: 93
+  }
+]
+
+dummy_school> db.students.find({},{_id:0})
+[
+  { name: 'Aisha', marks: 96 },
+  { name: 'Radha', marks: 79 },
+  { name: 'Mayank', marks: 82 },
+  { name: 'Raju' },
+  { name: 'Tony', marks: 93 }
+]
+dummy_school> db.students.updateOne({name:"Raju"},{$set:{marks:59}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+dummy_school> db.students.find({},{_id:0})
+[
+  { name: 'Aisha', marks: 96 },
+  { name: 'Radha', marks: 79 },
+  { name: 'Mayank', marks: 82 },
+  { name: 'Raju', marks: 59 },
+  { name: 'Tony', marks: 93 }
+]
+
+dummy_school> db.students.find({},{_id:0}).sort({marks:1}).limit(1).skip(2)
+[ { name: 'Mayank', marks: 82 } ]
+
+dummy_school> db.students.find({},{_id:0}).sort({marks:-1}).limit(3)
+[
+  { name: 'Aisha', marks: 96 },
+  { name: 'Tony', marks: 93 },
+  { name: 'Mayank', marks: 82 }
+]
+
+===================================================================================
+
+dummy_school> db.students.find({},{_id:0},{name:"Tony"})
+[
+  { name: 'Aisha', marks: 96 },
+  { name: 'Radha', marks: 79 },
+  { name: 'Mayank', marks: 82 },
+  { name: 'Raju', marks: 59 },
+  { name: 'Tony', marks: 93 }
+]
+
+dummy_school> db.students.find({name:"Tony"})
+[
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a2'),
+    name: 'Tony',
+    marks: 93
+  }
+]
+
+dummy_school> db.students.find({name:{$ne:"Tony"}})
+[
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f89e'),
+    name: 'Aisha',
+    marks: 96
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f89f'),
+    name: 'Radha',
+    marks: 79
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a0'),
+    name: 'Mayank',
+    marks: 82
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a1'),
+    name: 'Raju',
+    marks: 59
+  }
+]
+dummy_school> db.students.find({},{_id:0},{name:{$ne:"Tony"}})
+[
+  { name: 'Aisha', marks: 96 },
+  { name: 'Radha', marks: 79 },
+  { name: 'Mayank', marks: 82 },
+  { name: 'Raju', marks: 59 },
+  { name: 'Tony', marks: 93 }
+]
+dummy_school> db.students.find({_id:0},{name:{$ne:"Tony"}})
+MongoServerError[Location16020]: Expression $ne takes exactly 2 arguments. 1 were passed in.
+dummy_school> db.students.find({name:{$ne:"Tony"}},{_id:0})
+[
+  { name: 'Aisha', marks: 96 },
+  { name: 'Radha', marks: 79 },
+  { name: 'Mayank', marks: 82 },
+  { name: 'Raju', marks: 59 }
+]
+dummy_school> db.students.find({marks:{$gte:80}},{_id:0})
+[
+  { name: 'Aisha', marks: 96 },
+  { name: 'Mayank', marks: 82 },
+  { name: 'Tony', marks: 93 }
+]
+dummy_school> db.students.find({marks:{$lte:80}},{_id:0})
+[ { name: 'Radha', marks: 79 }, { name: 'Raju', marks: 59 } ]
+dummy_school> db.students.find({marks:{$gte:70,$lte:90}},{_id:0})
+[ { name: 'Radha', marks: 79 }, { name: 'Mayank', marks: 82 } ]
+dummy_school> db.students.insertMany([{name:"abc",age:56,marks:12,isAlive:true},{name:"xyz",age:27,marks:91,isAlive:False},{name:'asdfghj"}])
+Uncaught:
+SyntaxError: Unterminated string constant. (1:115)
+
+> 1 | db.students.insertMany([{name:"abc",age:56,marks:12,isAlive:true},{name:"xyz",age:27,marks:91,isAlive:False},{name:'asdfghj"}])
+    |                                                                                                                    ^
+  2 |
+
+dummy_school> db.students.insertMany([{name:"abc",age:56,marks:12,isAlive:true},{name:"xyz",age:27,marks:91,isAlive:False},{name:'asdfghj'}])
+ReferenceError: False is not defined
+dummy_school> db.students.insertMany([{name:"abc",age:56,marks:12,isAlive:true},{name:"xyz",age:27,marks:91,isAlive:false},{name:'asdfghj'}])
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68032e2da7385dd7c3b5f8a3'),
+    '1': ObjectId('68032e2da7385dd7c3b5f8a4'),
+    '2': ObjectId('68032e2da7385dd7c3b5f8a5')
+  }
+}
+dummy_school> db.students.find({},{_id:0})
+[
+  { name: 'Aisha', marks: 96 },
+  { name: 'Radha', marks: 79 },
+  { name: 'Mayank', marks: 82 },
+  { name: 'Raju', marks: 59 },
+  { name: 'Tony', marks: 93 },
+  { name: 'abc', age: 56, marks: 12, isAlive: true },
+  { name: 'xyz', age: 27, marks: 91, isAlive: false },
+  { name: 'asdfghj' }
+]
+dummy_school> db.students.find()
+[
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f89e'),
+    name: 'Aisha',
+    marks: 96
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f89f'),
+    name: 'Radha',
+    marks: 79
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a0'),
+    name: 'Mayank',
+    marks: 82
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a1'),
+    name: 'Raju',
+    marks: 59
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a2'),
+    name: 'Tony',
+    marks: 93
+  },
+  {
+    _id: ObjectId('68032e2da7385dd7c3b5f8a3'),
+    name: 'abc',
+    age: 56,
+    marks: 12,
+    isAlive: true
+  },
+  {
+    _id: ObjectId('68032e2da7385dd7c3b5f8a4'),
+    name: 'xyz',
+    age: 27,
+    marks: 91,
+    isAlive: false
+  },
+  { _id: ObjectId('68032e2da7385dd7c3b5f8a5'), name: 'asdfghj' }
+]
+
+dummy_school> db.students.find()
+[
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f89e'),
+    name: 'Aisha',
+    marks: 96
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f89f'),
+    name: 'Radha',
+    marks: 79
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a0'),
+    name: 'Mayank',
+    marks: 82
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a1'),
+    name: 'Raju',
+    marks: 59
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a2'),
+    name: 'Tony',
+    marks: 93
+  },
+  {
+    _id: ObjectId('68032e2da7385dd7c3b5f8a3'),
+    name: 'abc',
+    age: 56,
+    marks: 12,
+    isAlive: true
+  },
+  {
+    _id: ObjectId('68032e2da7385dd7c3b5f8a4'),
+    name: 'xyz',
+    age: 27,
+    marks: 91,
+    isAlive: false
+  },
+  { _id: ObjectId('68032e2da7385dd7c3b5f8a5'), name: 'asdfghj' }
+]
+dummy_school> db.students.deleteOne({_id: ObjectId('68032e2da7385dd7c3b5f8a5')})
+{ acknowledged: true, deletedCount: 1 }
+dummy_school> db.students.find()
+[
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f89e'),
+    name: 'Aisha',
+    marks: 96
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f89f'),
+    name: 'Radha',
+    marks: 79
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a0'),
+    name: 'Mayank',
+    marks: 82
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a1'),
+    name: 'Raju',
+    marks: 59
+  },
+  {
+    _id: ObjectId('680327e5a7385dd7c3b5f8a2'),
+    name: 'Tony',
+    marks: 93
+  },
+  {
+    _id: ObjectId('68032e2da7385dd7c3b5f8a3'),
+    name: 'abc',
+    age: 56,
+    marks: 12,
+    isAlive: true
+  },
+  {
+    _id: ObjectId('68032e2da7385dd7c3b5f8a4'),
+    name: 'xyz',
+    age: 27,
+    marks: 91,
+    isAlive: false
+  }
+]
+dummy_school> db.students.find({},{_id:0})
+[
+  { name: 'Aisha', marks: 96 },
+  { name: 'Radha', marks: 79 },
+  { name: 'Mayank', marks: 82 },
+  { name: 'Raju', marks: 59 },
+  { name: 'Tony', marks: 93 },
+  { name: 'abc', age: 56, marks: 12, isAlive: true },
+  { name: 'xyz', age: 27, marks: 91, isAlive: false }
+]
+dummy_school> db.students.deleteMany({isAlive:{$exists})
+Uncaught:
+SyntaxError: Unexpected token, expected "," (1:41)
+
+> 1 | db.students.deleteMany({isAlive:{$exists})
+    |                                          ^
+  2 |
+
+dummy_school> db.students.deleteMany({isAlive:{$exists}})
+ReferenceError: $exists is not defined
+dummy_school> db.students.deleteMany({isAlive:{$exists:true}})
+{ acknowledged: true, deletedCount: 2 }
+dummy_school> db.students.find({},{_id:0})
+[
+  { name: 'Aisha', marks: 96 },
+  { name: 'Radha', marks: 79 },
+  { name: 'Mayank', marks: 82 },
+  { name: 'Raju', marks: 59 },
+  { name: 'Tony', marks: 93 }
+]
+dummy_school>

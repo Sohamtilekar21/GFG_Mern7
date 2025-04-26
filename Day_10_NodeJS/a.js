@@ -1,0 +1,6 @@
+//console.log(window)
+//console.log(global)
+const os = require('os')
+console.log(os.uptime())
+console.log(os.platform())
+console.log(os.hostname())

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My fruit shop</title>
+    <style>
+        body{
+            background-color: lightgreen;
+            text-align: center;
+        }
+        h1{
+            background-color: greenyellow;
+            color: green;
+        }
+        div{
+            height: 100px;
+            width: 200px;
+            background-color: darkgreen;
+            margin-left: 40%;
+            border-radius: 30px;
+            margin-top: 20px;
+            padding-top: 20px;
+        }
+        #a{
+            background-color: aqua;
+        }
+        #b{
+            background-color: greenyellow;
+        }
+        #c{
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- Windows + semicolon for emojis -->
+    <h1>Welcome to my fruit shop</h1>
+    <div id="a"></div>
+    <div id="b"></div>
+    <div id="c"></div>
+    <script>
+        let grp=0
+        let mng=0
+        const fruits=['🍎','🥭','🍇','🍎','🥭','🍎','🍇','🍇','🍎']
+        //console.log(fruits.length)
+        for(i=0;i<fruits.length;i++){
+            if(fruits[i]==='🍇'){
+                document.getElementById('b').textContent+='🍇'
+            }else if(fruits[i]==='🥭'){
+                mng++
+            }else{
+                document.getElementById('a').textContent+='🍎'
+            }
+        }
+        document.getElementById('c').textContent='🥭'.repeat(mng)
+    </script>
+</body>
+</html>

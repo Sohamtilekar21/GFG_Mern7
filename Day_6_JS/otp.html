@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP</title>
+    <style>
+        *{
+            background-color: seagreen;
+            text-align: center;
+        }
+
+        h1{
+            color: lightblue;
+        }
+        span{
+            color: darkblue;
+            font-size: 45px;
+        }
+        button{
+            background-color: black;
+            color: gold;
+            width: 100px;
+            height: 40px;
+            font-size: 15px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Your one time password is <span id="otp"> </span></h1>
+    <button onclick="myOtp()">Get OTP</button>
+
+    <script>
+        // console.log(Math.min(2,56,3,6))
+        //console.log(Math.max(2,56,3,6))
+        // floor , ceil also there
+        
+        function myOtp(){
+            let var1=Math.random().toString().slice(2,8)
+            document.getElementById("otp").textContent=var1
+        }
+
+    </script>
+</body>
+</html>

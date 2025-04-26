@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic API</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <h1>"I am learning basic API's</h1>
+
+    <script>
+        console.log(Date)
+        let now = new Date()
+        console.log(now)
+        console.log(now.getFullYear)
+
+        console.log(Promise)
+        let p = new Promise((resolve,reject)=>{
+            let a=1+1
+            if(a==2){
+                resolve("this is correct")
+            }else{
+                reject("Wrong")
+            }
+        })
+        p.then((message)=>{
+            console.log("right" + message)
+        }).catch((message)=>{
+            console.log("Calculate again" + message)
+        })
+
+        //fetch (getting data from third party)
+        //.then pass
+        //.then
+    </script>
+</body>
+</html>

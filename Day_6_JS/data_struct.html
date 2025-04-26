@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- objects are key value pairs
+    ex: const course ={
+        name:"MERN",
+        age:12,
+        location:"Pune"
+    }
+
+    string = sequence of characters
+
+    arrays = collection of items
+    [] indexed from 0 -->
+
+    <script>
+        const myfrnds=['ram','shyam','dham']
+        console.log(myfrnds)
+        myfrnds.push('neha') //add element at last
+        console.log(myfrnds)
+        myfrnds.unshift('saee') // adds element at start
+        console.log(myfrnds)
+        myfrnds.reverse()
+        console.log(myfrnds)
+        myfrnds.shift() //removes 1st elemnt from array and returns it
+        console.log(myfrnds)
+        myfrnds.pop() // removes last element
+        console.log(myfrnds)
+        myfrnds[1]="Bheem"
+        console.log(myfrnds)
+
+        for (i=0;i<5;i++){
+            console.log(i)
+        }
+        for(j=2;j<5;j++){
+            for(i=1;i<11;i++){
+                console.log(`${j} X ${i} = ${j*i}`)
+            }
+            console.log("-------------")
+        }
+
+        var age=24
+        while(age<32){
+            age+=4
+        }
+        console.log(age)
+
+
+
+   </script>
+</body>
+</html>

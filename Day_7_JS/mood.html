@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mood</title>
+    <style>
+        body{
+            background-color: lightcoral;
+            text-align: center;
+        }
+        img{
+            height: 200px;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hows the MOOOOD ????</h1>
+    <div>
+        <img src="happy.jpg" alt="">
+        <br><br>
+        <button>Happy</button>
+        <button>Sad</button>
+    </div>
+
+    <script>
+        let photo = document.querySelector('img')
+        let b1=document.querySelectorAll('button')[0]
+        let b2=document.querySelectorAll('button')[1]
+
+        b1.addEventListener('click',()=>{
+            console.log("Happy")
+            photo.src='happy.jpg'
+        })
+
+        b2.addEventListener('click',()=>{
+            console.log("Sad")
+            photo.src='sad.jpg'
+        })
+    </script>
+</body>
+</html>
