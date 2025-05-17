@@ -3,6 +3,8 @@ const app = express()
 const port = 3003
 app.use(express.json())
 
+
+
 const mongoose = require('mongoose')
 mongoose.connect('mongodb://127.0.0.1:27017/xyz')
 
@@ -29,7 +31,20 @@ app.post('/fr',(req,res)=>{
     const newData = new Abc ({name})
     newData.save()
         .then(data=>res.json())
-        .catch(err=>send("the error is"+ err.message))
+        .catch(err=>res.send("the error is"+ err.message))
+})
+
+app.put('/fr/:id',(req,res)=>{
+    const {name} = req.body
+    Abc.findByIdAndUpdate(req.params.id,{name},{new : true})
+        .then(data => res.json(data))
+        .catch(err => res.send("the error is :"+err.message))
+})
+
+app.delete('/fr/:id',(req,res)=>{
+    Abc.findByIdAndDelete(req.params.id)
+        .then(data => res.send("Deleted successfully"))
+        .catch(err => res.send("the error"+err.message))
 })
 
 app.listen(port,()=>{

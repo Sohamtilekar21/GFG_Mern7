@@ -1,0 +1,39 @@
+body{
+    text-align: center;
+    align-items: center;
+}
+
+button{
+    background-color: cornflowerblue;
+    border-radius: 5%;
+
+}
+
+button:hover{
+    scale: 125%;
+    transition: ease;
+    background-color: blue;
+}
+
+form{
+    padding: 20px;
+    border: solid red 2px;
+    border-radius: 10px;
+    width: 400px;
+    margin-left: 23%;
+    margin-top: 5%;
+}
+
+button{
+    margin: 10px;
+    padding: 5px;
+}
+
+input{
+    margin: 3px;
+}
+
+li{
+    text-align: left;
+    margin-left: 40%;
+}

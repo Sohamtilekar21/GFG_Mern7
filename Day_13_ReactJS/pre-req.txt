@@ -1,0 +1,11 @@
+1. string literals/backticks ``
+2. ternary operators ? :
+3. ... rest amd spread
+4. oject destructuring{}
+5. map and filter
+6. splice and slice
+
+command npm create vite@latest
+-> react
+-> javascript
+
